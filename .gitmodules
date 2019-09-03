@@ -1,0 +1,6 @@
+[submodule "pkgA"]
+	path = pkgA
+	url = https://github.com/KikeM/pkgA.git
+[submodule "pkgB"]
+	path = pkgB
+	url = https://github.com/mmngreco/pkgB.git
