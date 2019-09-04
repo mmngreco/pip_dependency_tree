@@ -81,7 +81,7 @@ pkgb 0.0.0 has requirement pip-install-test==0.4, but you have pip-install-test 
 ## Scenario 2 : incompatibility
 
 This problem also takes places with incompatible versions, as we can see in
-the next escenario:
+the next scenario:
 
 ```
                 +--------------------------+
