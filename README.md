@@ -6,10 +6,12 @@ You can can dowload in local all content with:
 git clone --recurse-submodules https://github.com/mmngreco/pip_dependency_tree.git
 ```
 
-There are two branches:
+There is a branch for each scenario:
 
 * `master`
 * `crash`
+
+## Scenario 1 : cohesionless
 
 Suppose we have an depdency tree like the one described below:
 
@@ -63,7 +65,7 @@ python -s -m pip freeze
 python -s -m pip check
 ```
 
-The obtained result is:
+### The obtained result is
 
 ```bash
 $ python -s -m pip freeze
@@ -76,7 +78,10 @@ $ python -u -s -m pip check
 pkgb 0.0.0 has requirement pip-install-test==0.4, but you have pip-install-test 0.5.
 ```
 
-This problem also takes places with incompatible versions, as we can see in the next escenario:
+## Scenario 2 : incompatibility
+
+This problem also takes places with incompatible versions, as we can see in
+the next escenario:
 
 ```
                 +--------------------------+
@@ -111,7 +116,7 @@ python -s -m pip freeze
 python -s -m pip check
 ```
 
-The obtained result:
+### The obtained result
 
 ```bash
 $ python -s -m pip freeze
