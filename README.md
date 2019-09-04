@@ -43,7 +43,7 @@ cat pkgA/setup.py | grep numpy
 cat pkgB/setup.py | grep numpy
 
 # installation
-pip install pkgA/. --process-dependency-links -I --no-cache-dir
+python -s -m pip install pkgA/. --process-dependency-links -I --no-cache-dir -q
 
 # checks versions
 pip freeze | grep numpy  # numpy==1.17.1 ??
@@ -52,12 +52,15 @@ pip check
 
 The obtained result is:
 
-```
-pip freeze
-...
-pkgB==0.0.0
+```bash
+$ pip freeze
+certifi==2019.6.16
 numpy==1.17.1
-...
+pkgA==0.0.0
+pkgB==0.0.0
+
+$ python -u -s -m pip check
+pkgb 0.0.0 has requirement numpy==1.14, but you have numpy 1.17.1.
 ```
 
 This problem also takes places with incompatible versions, as we can see in the next escenario:
@@ -84,30 +87,27 @@ The example:
 
 ```bash
 # change to crashing branch
-cd pkgA
-git checkout crash  # pkgA
-
-cd ../pkgB
-git checkout crash  # pkgB
-cd ..
+cd pkgA && git checkout crash
+cd ../pkgB && git checkout crash && cd ..
 
 # checks numpy versions in the setup.py
 cat pkgA/setup.py
 cat pkgB/setup.py
 
-pip install pkgA/. --process-dependency-links -I --no-cache-dir
-pip check
-pip freeze | grep numpy  # numpy==1.17.1
+python -s -m pip install pkgA/. --process-dependency-links -I --no-cache-dir -q
+python -s -m pip check
+python -s -m pip freeze
 ```
-
 
 The obtained result:
 
-```
-pip freeze
-...
-pkgB==0.0.0
+```bash
+$ pip freeze
+certifi==2019.6.16
 numpy==1.17.1
-...
-```
+pkgA==0.0.0
+pkgB==0.0.0
 
+$ python -u -s -m pip check
+pkgb 0.0.0 has requirement numpy==1.14, but you have numpy 1.17.1.
+```
