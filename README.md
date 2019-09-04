@@ -100,7 +100,7 @@ The example:
 
 ```bash
 # change to crash branch (in pip_dependency_tree folder)
-git checkout crash
+git checkout crash --recurse-submodules
 
 # checks numpy versions in the setup.py
 cat pkgA/setup.py
