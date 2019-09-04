@@ -54,7 +54,7 @@ python -s -m pip check
 The obtained result is:
 
 ```bash
-$ pip freeze
+$ python -s -m pip freeze
 certifi==2019.6.16
 pip-install-test==0.5
 pkgA==0.0.0
@@ -103,7 +103,7 @@ python -s -m pip check
 The obtained result:
 
 ```bash
-$ pip freeze
+$ python -s -m pip freeze
 certifi==2019.6.16
 pip-install-test==0.5
 pkgA==0.0.0
