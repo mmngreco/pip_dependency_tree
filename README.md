@@ -1,5 +1,16 @@
 # Unexpected behaviour of PIP
 
+You can can dowload in local all content with:
+
+```bash
+git clone --recurse-submodules https://github.com/mmngreco/pip_dependency_tree.git
+```
+
+There are two branches:
+
+* `master`
+* `crash`
+
 Suppose we have an depdency tree like the one described below:
 
 ```
@@ -38,6 +49,7 @@ conda activate tst
 
 # clones code needed
 git clone --recurse-submodules https://github.com/mmngreco/pip_dependency_tree.git
+cd pip_dependency_tree
 
 # takes a look at the versions in the setup.py
 cat pkgA/setup.py
@@ -87,9 +99,8 @@ this should **crash** the installation process, but it doesn't.
 The example:
 
 ```bash
-# change to crashing branch
-cd pkgA && git checkout crash
-cd ../pkgB && git checkout crash && cd ..
+# change to crash branch (in pip_dependency_tree folder)
+git checkout crash
 
 # checks numpy versions in the setup.py
 cat pkgA/setup.py
