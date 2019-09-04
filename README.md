@@ -1,6 +1,6 @@
 # Unexpected behaviour of PIP
 
-Suppose we have an depdency tree like described below:
+Suppose we have an depdency tree like the one described below:
 
 ```
                 +---------------+
@@ -17,9 +17,9 @@ Suppose we have an depdency tree like described below:
      +---------------+     +---------------+
 ```
 
-Here we have an `pkgA` that needs `pkgB` and `numpy>=1.14.0` as dependencies,
-where `pkgB` only works with `numpy==1.14.0`. The expected versions installed
-after execute `pip install pkgA --process-dependency-links` is:
+Here we have a `pkgA` that needs `pkgB` and `numpy>=1.14.0` as dependencies,
+but `pkgB` only works with `numpy==1.14.0`. The expected versions installed
+after the execution of `pip install pkgA --process-dependency-links` are:
 
 ```
 ...
@@ -28,7 +28,7 @@ numpy==1.14.0
 ...
 ```
 
-Concretly: This should install `numpy==1.14.0` but it doesn't. Here an example:
+This should install `numpy==1.14.0` but it doesn't:
 
 ```bash
 # creates an enviroment
@@ -60,7 +60,7 @@ numpy==1.17.1
 ...
 ```
 
-In order to check incompatible versions also, we try the next escenario:
+This problem also takes places with incompatible versions, as we can see in the next escenario:
 
 ```
                 +---------------+
@@ -77,8 +77,8 @@ In order to check incompatible versions also, we try the next escenario:
      +---------------+     +---------------+
 ```
 
-In this case we have incompatible versions of numpy between `pkgA` and `pkgB` then
-this should **crash** installation process, but it doesn't.
+In this case we have incompatible versions of numpy between `pkgA` and `pkgB`, so
+this should **crash** the installation process, but it doesn't.
 
 The example:
 
