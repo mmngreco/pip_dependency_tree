@@ -1,5 +1,10 @@
 # Unexpected behaviour of PIP
 
+> ## Note
+> [Here](https://github.com/mmngreco/pip_dependency_tree/issues/1) you can find 
+> references to relevants links. There are nice explanations from pip
+> developers about this issue.
+
 You can can dowload in local all content with:
 
 ```bash
