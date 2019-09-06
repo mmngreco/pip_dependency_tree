@@ -74,8 +74,7 @@ python -s -m pip check
 
 ```bash
 $ python -s -m pip freeze
-certifi==2019.6.16
-pip-install-test==0.5
+pip-install-test==0.5  # WTF!!!!!
 pkgA==0.0.0
 pkgB==0.0.0
 
@@ -125,8 +124,7 @@ python -s -m pip check
 
 ```bash
 $ python -s -m pip freeze
-certifi==2019.6.16
-pip-install-test==0.5
+pip-install-test==0.5  # WTF!!!!!
 pkgA==0.0.0
 pkgB==0.0.0
 
